@@ -1,0 +1,40 @@
+\def\tildeH{\widetilde \hipotset}
+
+
+\begin{enunciado}{19}
+    This problem derives a bound for the VC dimension of a complex hypothesis set that is built from simpler hypothesis sets via composition. Let $\hipotset_1, \dots, \hipotset_K$ be hypothesis sets with VC dimensions $d_1, \dots, d_K$. Fix $h_1, \dots, h_K$, where $h_i \in \hipotset_i$. Define a vector $\mathbf{z}$ obtained from $\mathbf{x}$ to have components $h_i(\mathbf{x})$. Note that $\mathbf{x} \in \conjR^d$, but $z \in \{-1, +1\}^K$. 
+    Let $\tildeH$ be a hypothesis set of functions that take inputs in $\conjR^K$. So
+    
+    $$ \tilde h \in \tildeH ~:~ \mathbf{z} \in \conjR^K \mapsto \{ +1, -1 \} $$
+    
+    and suppose that $\widetilde \hipotset$ has VC dimension $\tilde d$.
+    
+    We can apply a hypothesis in $\tildeH$ to the $\mathbf{z}$ constructed from $(h_1, \dots, h_K)$. This is the composition of the hypothesis set $\tildeH$ with $(\hipotset_1, \dots, \hipotset_K)$. 
+    More formally, the composed hypothesis set\\
+    $\hipotset = \tildeH \circ (\hipotset_1, \dots, \hipotset_K)$ is defined by $h \in \hipotset$ if
+    
+    $$ h(\mathbf{x}) = \tilde h (h_1(\mathbf{x}), \dots, h_K(\mathbf{x})), \qquad \tilde h \in \tildeH;~h_i \in \hipotset_i $$
+    
+    \letra{a} Show that 
+    
+    \begin{equation}
+    m_{\hipotset}(N) \le m_{\tildeH}(N) \prod\limits_{i=1}^K m_{\hipotset_i}(N). \tag{2.18}
+    \end{equation}
+    
+    \textit{[Hint: Fix $N$ points $\mathbf{x}_1, \dots, \mathbf{x}_N$ and fix $h_1, \dots, h_K$. This generates $N$ transformed points $\mathbf{z}_1, \dots, \mathbf{z}_N$. These $\mathbf{z}_1, \dots, \mathbf{z}_N$ can be dichotomized in at most $m_{\tildeH}(N)$ ways, hence for a fixed $(h_1, \dots, h_K)$, $(\mathbf{x}_1, \dots, \mathbf{x}_N)$ can be dichotomized in at most $m_{\tildeH}(N)$ ways. Through the eyes of $\mathbf{x}_1, \dots, \mathbf{x}_N$, at most how many hypotheses are there (effectively) in $\hipotset_i$? 
+    Use this bound to bound the effective number of $K$-tuples $(h_1, \dots, h_K)$ that need to be considered. Finally, argue that you can bound the number of dichotomies that can be implemented by the product of the number of possible $K$-tuples $(h_1, \dots, h_K)$ and the number of dichotomies per $K$-tuple.]}
+    
+    \letra{b} Use the bound $m(N) \le \left( \frac{eN}{\dvc} \right)^{\dvc}$ to get a bound for $m_{\hipotset}(N)$ in terms of $\tilde d, d_1, \dots, d_K$.
+    
+    \letra{c} Let $D = \tilde d + \sum\limits_{i=1}^K d_i$, and assume that $D > 2 e \log_2 D$. Show that 
+    
+    $$ \dvc(\hipotset) \le 2 D \log_2 D $$
+    
+    \letra{d} If $\hipotset_i$ and $\tildeH$ are all perceptron hypothesis sets, show that
+    
+    $$ \dvc(\hipotset) = O(d K \log(dK)) $$
+    
+    In the next chapter, we will further develop the simple linear model. This linear model is the building block of many other models, such as neural networks. The results of this problem show how to bound the VC dimension of the more complex models built in this manner.
+\end{enunciado}
+
+Resposta resposta resposta
