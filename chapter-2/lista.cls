@@ -29,6 +29,7 @@
 \RequirePackage{amsmath}
 \RequirePackage[mathscr]{euscript}
 \RequirePackage{dsfont}
+\RequirePackage{float}
 
 % Definições de padrões
 \def\conjR{\mathds{R}}
