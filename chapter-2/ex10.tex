@@ -2,4 +2,14 @@
     Show that $m_{\hipotset}(2N) \le m_{\hipotset}(N)^2$, and hence obtain a generalization bound which only involves $m_{\hipotset}(N)$.
 \end{enunciado}
 
-Resposta resposta resposta
+Por definição, $m_{\hipotset}(N)$ é o maior número de dicotomias que podem ser geradas por $\hipotset$ usando $N$ pontos quaisquer.
+
+Qualquer conjunto com $2N$ pontos pode ser dividido em 2 conjuntos com $N$ pontos cada. Para qualquer conjunto de $N$ pontos,
+o número máximo de dicotomias que pode ser gerada é $m_{\hipotset}(N) = n$. Portanto, considerando os $2N$ pontos, o número de
+dicotomias que pode ser gerado é, no máximo, o produto do número de dicotomias de cada conjunto. Assim:
+
+\[
+  m_{\hipotset}(2N) \leq n \times n = n^2 = m_{\hipotset}(N)^2
+\]
+
+Conclui-se que $m_{\hipotset}(2N) \leq m_{\hipotset}(N)^2$, como queríamos.
