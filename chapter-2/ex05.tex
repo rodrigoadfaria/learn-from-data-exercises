@@ -4,4 +4,101 @@
     $$ m_{\hipotset}(N) \le N^{\dvc} + 1 $$
 \end{enunciado}
 
-Resposta resposta resposta
+Queremos provar que $ \sum\limits_{i=0}^D \binomial{N}{i} \le N^D + 1$ para $0 \le D \le N$.
+
+Nossa indução precisa que $D$ esteja entre $1$ e $N - 1$, portanto vamos separar os casos extremos de $D$ e avaliar numericamente, assim como o caso $N = 1$, que não vai se encaixar na indução.
+
+Caso $N = 1$, temos:
+
+$\sum\limits_{i=0}^{D} \binomial{1}{i} = \begin{cases}
+1&\text{se }D = 0\\
+2&\text{se }D = 1
+\end{cases}$
+
+Então,
+
+$\sum\limits_{i=0}^{D} \binomial{1}{i} \le 2 = 1 + 1 = N^D + 1$,
+
+pois $N^D = 1$ tanto para $D = 1$ como para $D = 0$.
+
+Agora, trataremos dos casos extremos de $D$.
+Quando $D = 0$, temos:
+
+$\sum\limits_{i=0}^D \binomial{N}{i} = \binomial{N}{0} = 1 = N^0 \le N^0 + 1 = N^D + 1$
+
+E quando $D = N$, temos:
+
+$\sum\limits_{i=0}^D \binomial{N}{i} = \sum\limits_{i=0}^N \binomial{N}{i} = 2^N$, pois estamos somando a linha $N$ inteira do triângulo de Pascal.
+
+E como $2^N \le N^N$ para $N \ge 2$, temos que $\sum\limits_{i=0}^D \binomial{N}{i} \le N^N \le N^N + 1 = N^D + 1$ para $N \ge 2$
+
+
+\vspace{3pt}
+
+Agora vamos provar por indução em $N$, $N \ge 2$, que:
+
+$\sum\limits_{i=0}^D \binomial{N}{i} \le N^D + 1$ para $1 \le D \le N - 1$.
+
+\textbf{Base da indução}
+
+Para $N = 2$
+
+Queremos mostrar que $\sum\limits_{i=0}^D \binomial{N}{i} \le N^D + 1$ para $1 \le D \le 2 - 1 = 1$, portanto para $D = 1$.
+
+$\sum\limits_{i=0}^1 \binomial{2}{i} = \binomial{2}{0} + \binomial{2}{1} = 1 + 2 = 2^1 + 1 = N^D + 1$
+
+\textbf{Passo da indução}
+
+Suponha que a hipótese valha para todo valor entre $2$ e $N -1$. Vamos mostrar que vale também para $N$.
+
+$\sum\limits_{i=0}^D \binomial{N}{i} = \sum\limits_{i=1}^D \binomial{N}{i} + \binomial{N}{0} = \sum\limits_{i=1}^D \binomial{N}{i} + 1$
+
+Usando a propriedade de binomial $\binomial{N}{k} = \binomial{N-1}{k-1} + \binomial{N-1}{k}$ (essa propriedade que gerou os casos particulares do começo do exercício), temos:
+
+$\sum\limits_{i=1}^D \binomial{N}{i} + 1 = \sum\limits_{i=1}^D (\binomial{N-1}{i-1} + \binomial{N-1}{i}) + 1 = \sum\limits_{i=1}^D \binomial{N-1}{i-1} + \sum\limits_{i=1}^D \binomial{N-1}{i} + 1$
+
+Podemos ajustar os limites do primeiro somatório
+
+$\sum\limits_{i=1}^D \binomial{N-1}{i-1} + \sum\limits_{i=1}^D \binomial{N-1}{i} + 1 =
+\sum\limits_{i=0}^{D-1} \binomial{N-1}{i} + \sum\limits_{i=1}^D \binomial{N-1}{i} + 1$
+
+Como $\binomial{N-1}{0} = 1$, podemos incluí-lo no segundo somatório
+
+$= \sum\limits_{i=0}^{D-1} \binomial{N-1}{i} + \sum\limits_{i=0}^D \binomial{N-1}{i}$
+
+\vspace{7pt}
+
+Para o primeiro somatório $\sum\limits_{i=0}^{D-1} \binomial{N-1}{i}$, podemos usar a hipótese de indução com certeza, pois $D - 1 \le (N - 1) - 1$. Mas o segundo somatório pode ter $D = (N - 1)$, e nesse caso, não temos as condições para usar a hipótese de indução. Mas provamos esse caso especial ($D$ sendo o maior número possível, no caso $N -1$) no começo do exercício, então temos as seguintes relações:
+
+$\sum\limits_{i=0}^{D-1} \binomial{N-1}{i} \le (N-1)^{D-1} + 1$, pela hipótese de indução
+
+$\sum\limits_{i=0}^D \binomial{N-1}{i} \le (N-1)^D + 1$, pela hipótese de indução se $D \le (N - 1) - 1$ ou pelo caso especial se $D = N - 1$.
+
+\vspace{7pt}
+
+Juntando tudo:
+
+$\sum\limits_{i=0}^{D-1} \binomial{N-1}{i} + \sum\limits_{i=0}^D \binomial{N-1}{i} 
+\le
+(N-1)^{D-1} + 1 + (N-1)^D + 1 = (N-1)^{D-1} (1 + (N -1)) + 2 = (N-1)^{D-1} N + 2
+$
+
+Separando $(N-1)^{D-1}$ em $(N-1)(N-1)^{D-2}$,
+
+$(N-1)^{D-1} N = (N-1)(N-1)^{D-2}N$
+
+Mas repare que $N \ge 2$, então $N \ge N - 1$ e portanto $(N-1)^{D-2} \le N^{D-2}$, assim
+
+$(N-1)(N-1)^{D-2}N + 2 \le (N-1)N^{D-2}N + 2 = (N-1)N^{D-1} = N^D - N^{D-1} + 2$
+
+Como $N \ge 2$ e $D \ge 1$, então $N^{D-1} \ge 1$, então $-N^{D-1} + 2 \le 1$, assim, temos que
+$N^D - N^{D-1} + 2 \le N^D + 1$ e podemos concluir que 
+
+$\sum\limits_{i=0}^D \binomial{N}{i} \le N^D + 1$
+como queríamos.
+
+\vspace{7pt}
+
+Como $m_{\hipotset}(N) \le \sum\limits_{i=0}^{\dvc} \binomial{N}{i}$, podemos concluir que 
+
+$m_{\hipotset}(N) \le \sum\limits_{i=0}^{\dvc} \binomial{N}{i} \le N^{\dvc} + 1$\cqd

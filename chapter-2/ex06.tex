@@ -14,4 +14,68 @@
     Hence, argue that $m_{\hipotset}(N) \le (\frac{eN}{\dvc})^{\dvc}$.
 \end{enunciado}
 
-Resposta resposta resposta
+\textbf{(a)}
+
+Como $N \ge d$, então $\frac{N}{d} \ge 1$. E como $i \le d$, $d - i \ge 0$ e portanto $\left(\frac{N}{i} \right)^{d-i} \ge 1$
+
+Multiplicando cada termo do somatório $\sum\limits_{i=0}^{d} \binomial{N}{i}$ por um valor maior ou igual a $1$, podemos escrever a relação
+
+$\sum\limits_{i=0}^{d} \binomial{N}{i} \le \sum\limits_{i=0}^{d} \binomial{N}{i}\left(\frac{N}{d}\right)^{d-i}$
+
+Para $0 \le i \le d$, temos que $\left(\frac{N}{d}\right)^{i}\left(\frac{d}{N}\right)^{i} = 1$. Assim,
+
+$\sum\limits_{i=0}^{d} \binomial{N}{i} \le \sum\limits_{i=0}^{d} \binomial{N}{i}\left(\frac{N}{d}\right)^{d-i}=
+\sum\limits_{i=0}^{d} \binomial{N}{i}\left(\frac{N}{d}\right)^{d-i}
+\left(\frac{N}{d}\right)^{i}\left(\frac{d}{N}\right)^{i} = 
+\sum\limits_{i=0}^{d} \binomial{N}{i}\left(\frac{N}{d}\right)^{d}
+\left(\frac{d}{N}\right)^{i}
+$
+
+Como $\left(\frac{N}{d}\right)^d$ não depende de $i$, podemos tirá-lo do somatório e obter a relação desejada
+
+$\sum\limits_{i=0}^{d} \binomial{N}{i} \le \sum\limits_{i=0}^{d} \binomial{N}{i}\left(\frac{N}{d}\right)^{d-i} \le
+\left(\frac{N}{d}\right)^{d} \sum\limits_{i=0}^{d} \binomial{N}{i}
+\left(\frac{d}{N}\right)^{i}
+$\cqd
+
+\vspace{1cm}
+
+\textbf{(b)}
+
+O Teorema Binomial nos diz o seguinte:
+
+$(1 + x)^n = \sum\limits_{i=0}^n \binomial{n}{i} x^i$
+
+
+Observe que $\sum\limits_{i=0}^{N}\binomial{N}{i} \left( \frac{d}{N} \right)^{i}$ tem a forma adequada para usarmos esse teorema. Usando o teorema, com $x = \left( \frac{d}{N} \right)$, obtemos a igualdade
+
+$\sum\limits_{i=0}^{N}\binomial{N}{i} \left( \frac{d}{N} \right)^{i} = (1 + \frac{d}{N})^N$
+
+Resta mostrar que $\left( 1 + \frac{d}{N} \right)^N \le e^d$.
+
+Seja $t \in [1, +\infty[$, então
+
+$\frac{1}{t} \le 1$
+
+Tomando a integral dos dois lados, de $1$ a $1 + \frac{d}{N}$, temos:
+
+$$ \int_{1}^{1 + \frac{d}{N}} \frac{1}{t} \le
+\int_{1}^{1 + \frac{d}{N}} 1$$
+
+O que nos dá o seguinte
+
+$$ \ln(1 + \frac{d}{N}) \le \frac{d}{N} $$
+
+Exponenciando,
+
+$$1 + \frac{d}{N} \le e^{\frac{d}{N}}$$
+
+Elevando a $N$ dos dois lados, obtemos a relação desejada:
+
+$$ \left( 1 + \frac{d}{N} \right)^N \le e^d$$
+
+Assim, concluímos que
+$\sum\limits_{i=0}^{N}\binomial{N}{i} 
+\left( 
+\frac{d}{N} \right)^{i} 
+\le e^d$\cqd
