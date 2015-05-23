@@ -30,6 +30,7 @@
 \RequirePackage[mathscr]{euscript}
 \RequirePackage{dsfont}
 \RequirePackage{float}
+\RequirePackage{cases}
 
 % Definições de padrões
 \def\conjR{\mathds{R}}
