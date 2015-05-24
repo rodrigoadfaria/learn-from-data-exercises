@@ -3,3 +3,40 @@
     do you need (as prescribed by the generalization bound) to have a 95\% confidence that your generalization error is at most 0.05?
 \end{enunciado}
 
+\textbf{Simplificando o  VC Bound}
+
+A fórmula original do VC Bound é dada por:
+
+\begin{equation*}
+\epsilon \leq \sqrt{\frac{8}{N}\ln{\frac{4m_{\mathcal{H}}(2N)}{\delta}}}
+\end{equation*}
+
+Colocando em termos de $N$:
+
+\begin{equation*}
+N \geq \frac{8}{\epsilon^2}\ln{\frac{4m_{\mathcal{H}}(2N)}{\delta}}
+\end{equation*}
+
+Agora, definindo a função de crescimento $m_{\mathcal{H}}(N)$ em termos do limite superior da $d_{vc}$:
+
+\begin{equation*}
+N \geq \frac{8}{\epsilon^2}\ln{\frac{4(2N)^{d_{vc}}}{\delta}}
+\end{equation*}
+
+\textbf{Resolvendo por aproximações sucessivas}
+
+Tomando $N=10^5$, vamos procurar um $N$ tal que a desigualdade seja satisfeita.
+Se aplicarmos $N$ na fórmula $d_{vc}=10$,
+$\epsilon=0.05$ and $\delta=0.05$, nós temos:
+
+\begin{equation*}
+N \geq \frac{8}{0.05^2}\ln{\frac{4(2\cdot10^5)^{10}}{0.05}} \approx 404,617
+\end{equation*}
+
+Se atribuirmos o resultado, $N=\numprint{404617}$, na mesma equação:
+
+\begin{equation*}
+N \geq \frac{8}{0.05^2}\ln{\frac{4(2\cdot404617)^{10}}{0.05}} \approx 449,345
+\end{equation*}
+
+Fazendo isso sucessivamente, veremos que $N$ converge para \numprint{452956}, aproximadamente.
