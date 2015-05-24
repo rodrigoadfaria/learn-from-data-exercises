@@ -10,4 +10,66 @@
     \letra{b} There are no $D + 2$ points which are shattered by $\hipotset$.
 \end{enunciado}
 
-Resposta resposta resposta
+\textbf{(a)} Seja $S = {0,e_1, \cdots, e_D)}$ o conjunto que contém a origem e vetor na base padrão de $\mathbb{R}^{d}$.
+
+Seja $\sum_{i = 0}^{D} (c_i x^i) = y_i \forall i$. Então, $y = {+1, -1, \cdots , +1}$
+Assim, $S$ é fragmentado por $\hipotset$.
+Logo, $\hipotset$ fragmenta $D+1$ amostras.
+
+\cqd
+
+\textbf{(b)}
+
+Definição:
+Seja $S \subset V$ o subconjunto de um espaço vetorial $V$.
+$$\text{conv} (S) = {\alpha_1 x_1 + \cdots + \alpha_n x_n \in V \mid \alpha_1, \cdots \alpha_n \in \mathbb{R^+} \wedge \alpha_1, \cdots \alpha_n = 1 \wedge {x_1 \cdots x_n} \subset S}$$ é denominado fecho convexo.
+Ou seja, o fecho convexo de $S$ é o conjunto de todas as combinações convexas de um número finito de elementos de $S$.
+
+Lema de Radon:
+Seja $X \subset \mathbb{R^d}$ tal que $\mid X\mid = d+2$ (conjunto de tamanho d+2).
+Então $\exists X_1 \subset X, X_2 \subset X, X_1 \cap X_2 = \emptyset$ tal que conv$(X_1) \cap$ conv $(X_2) \neq \emptyset$.
+
+Prova: 
+Seja $X = {x_1, \cdots x_{d+2}}$. Considere o seguinte sistema de $d+1$ equações nas variáveis $\lambda_1, \cdots, \lambda_{d+2}$.
+
+
+\begin{equation*}
+\left[
+\begin{array}{cccc}
+     x_1 & x_2 & \cdots & x_{d+2} \\
+     1 & 1 & \cdots & 1 
+\end{array} 
+\right]
+\left[
+\begin{array}{c}
+    \lambda_1  \\
+    \lambda_2 \\
+    \cdots \\
+    \lambda_{d+2} 
+\end{array} 
+\right] = 0
+ \end{equation*}
+
+Como há mais variáveis que equações, existe uma solução não-trivial $\lambda^* \neq 0$.
+
+Defina os conjuntos $P = {i / \lambda^*_i > 0}$ e $N = {j / \lambda^*_j < 0}$.
+
+Como $\lambda^* \neq 0$, ambos $P$ e $N$ são não-vazios e $\sum_{i \in P} \lambda^*_i = \sum_{j \in N} (- \lambda^*_j) \neq 0$.
+
+
+Ainda mais, como $\lambda^*$ satisfaz $\sum_{i=1}^{d+2} \lambda^*_i x_i = 0$, temos
+$\sum_{i \in P} \lambda^*_i x_i = \sum_{j \in N} (- \lambda^*_j) x_j$
+
+Defina $X_1 = {x_i \in X / i \in P}$ e $X_2 = {x_j \in X / i \in N}$
+
+Vemos que o ponto $\frac{\displaystyle\sum_{i \in P} \lambda^*_i x_i }{\displaystyle\sum_{i \in P} \lambda^*_i} = \frac{\displaystyle\sum_{j \in N} (- \lambda^*_j) x_j}{\displaystyle\sum_{j \in N} (- \lambda^*_j)}$ pertence a conv$(X_1)$ e a conv$(X_2)$.
+
+
+Agora, tome $X_1 \subset X$, $X_2 \subset X$, $X_1 \cap X_2 = \emptyset$ (dois subconjuntos disjuntos) cuja existência é garantida pelo Lema de Radon.
+Considere que todos os pontos em $X_1$ são rotulados +1 e todos os pontos em $X_2$ são rotulados -1.
+Suponha que existe $H$ tal que esta rotulação pode ser feita usando $H$.
+Note que se $H$ atribui um rótulo em particular a um conjunto de pontos, então a todo ponto em seu fecho convexo também se atribui o mesmo rótulo.
+Assim, todo ponto em conv $(X_1)$ é rotulado +1 por $H$ enquanto todo ponto em conv $(X_2)$ é rotulado -1.
+Mas, conv $(X_1) \cap$ conv $(X_2) \neq \emptyset$. Contradição.
+
+\cqd
