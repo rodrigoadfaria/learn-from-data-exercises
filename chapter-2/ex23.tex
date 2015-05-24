@@ -15,4 +15,61 @@ to $\dset$) of the hypothesis that the learning algorithm produces, and (iii) th
    
 \end{enunciado}
 
-Resposta resposta resposta
+Consideremos 
+
+Esperança:	$\mathbb{E}(x) = \int_a^b \! x p(x)\, \mathrm{d}x $
+
+Variância = $\mathbb{E}[(g(x) - \mathbb{E}[g(x)])^2]$
+
+$\text{bias}_{{\cal H}_i} = \mathbb{E}_x \left[ (\overline{g_i}(x) - f(x))^2 \right]$
+
+$E_{out} (x) =$ Variância + Bias
+
+$( f(x)=sin(\pi x), (a=-1, b=1) $
+
+$\mathbb{P}(x) = \dfrac{1}{b-a}= \dfrac{1}{2}$ é constante, visto que todo o espaço de probabilidade deve somar 1.
+
+Para  $\hipotset_0$ a hipótese media é $\overline{g_i}(x) = 0 $ $[ \text{bias}_{{\cal H}_0} = \frac{1}{2} \int_{-1}^{1} (sin(\pi x))^2 dx = \frac{1}{2} ]$
+\\
+
+\textbf{(a)} 
+
+$\hipotset_1: \overline{g_i}(x) = ax + b$
+
+$\text{bias}_{{\cal H}_1} = \frac{1}{2} \int_{-1}^{1} (ax + b - sin(\pi x))^2 \mathrm{d}x = \frac{1}{2} (\frac{2a^2}{3} - \frac{4a}{\pi}+ 2b^2 + 1)$
+
+$\mathbb{E}(x) = \frac{1}{2} \int_{-1}^{1} \! (ax + b)\, \mathrm{d}x = b$
+
+$\mathbb{E}[( g(x) - b)^2] = \frac{1}{2} \int_{-1}^{1} \! (a^2x^2)\, \mathrm{d}x = \frac{a^2}{3}$
+
+$E_{out} (x) = \frac{a^2}{3} + \frac{1}{2} (\frac{2a^2}{3} - \frac{4a}{\pi}+ 2b^2 + 1)
+= \frac{1}{2} (\frac{4a^2}{3} - \frac{4a}{\pi}+ 2b^2 + 1)$
+\\
+
+\textbf{(b)} 
+
+$\hipotset_1: \overline{g_i}(x) = ax$
+
+$\text{bias}_{{\cal H}_1} = \frac{1}{2} \int_{-1}^{1} (ax - sin(\pi x))^2 \mathrm{d}x = \frac{1}{2} (\frac{2a^2}{3} - \frac{4a}{\pi}+ 1)$
+
+$\mathbb{E}(x) = \frac{1}{2} \int_{-1}^{1} \! (ax)\, \mathrm{d}x = 0$
+
+$\mathbb{E}[( g(x)-0)^2] = \frac{1}{2} \int_{-1}^{1} \! (a^2x^2)\, \mathrm{d}x = \frac{a^2}{3}$
+
+$E_{out} (x) = \frac{a^2}{3} + \frac{1}{2} (\frac{2a^2}{3} - \frac{4a}{\pi}+ 1)
+= \frac{1}{2} (\frac{4a^2}{3} - \frac{4a}{\pi}+ 1)$
+\\
+
+\textbf{(c)}
+ 
+$H_1: \overline{g_i}(x) = b$
+
+
+$\text{bias}_{{\cal H}_1} = \frac{1}{2} \int_{-1}^{1} (b - sin(\pi x))^2 \mathrm{d}x = \frac{1}{2} (2b^2 + 1)$
+
+$\mathbb{E}(x) = \frac{1}{2} \int_{-1}^{1} \! (b)\, \mathrm{d}x = b$
+
+$\mathbb{E}[( g(x) – b)^2] = \frac{1}{2} \int_{-1}^{1} \! 0\, \mathrm{d}x = 0$
+
+$E_{out} (x) = 0 + \frac{1}{2} (2b^2 + 1)
+= \frac{1}{2} (2b^2 + 1)$
