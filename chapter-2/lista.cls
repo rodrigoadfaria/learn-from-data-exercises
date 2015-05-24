@@ -31,6 +31,7 @@
 \RequirePackage{dsfont}
 \RequirePackage{float}
 \RequirePackage{cases}
+\RequirePackage{numprint}
 
 % Definições de padrões
 \def\conjR{\mathds{R}}
