@@ -10,3 +10,19 @@
 \end{enunciado}
 
 Resposta resposta resposta
+
+Here is a hint. Lets consider showing B(5,2)>=1+5; It suffices to list 6 dichotomies on 5 points such that no subset of size 2 is shattered.
+
+Consider the following 6 dichotomies on 5 points:
+
+[1 1 1 1 1] (zero -1s)
+
+[-1 1 1 1 1] (5 ways of having one -1)
+[1 -1 1 1 1]
+[1 1 -1 1 1]
+[1 1 1 -1 1]
+[1 1 1 1 -1]
+
+Can you show that no subset of 2 points is shattered? Hint: are there any two points that are classified -1,-1?
+
+So, in general, you can guarantee that no subset of size k can be shattered if no subset of size k is classified all -1. This means that at most k-1 points are classified -1 by any dichotomy.
