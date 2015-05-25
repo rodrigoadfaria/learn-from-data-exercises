@@ -2,4 +2,20 @@
     Suppose $m_{\hipotset}(N) = N + 1$, so $\dvc = 1$. You have 100 training examples. Use the generalization bound to give a bound for $E_{out}$ with confidence 90\%. Repeat for $N = 10,000$.
 \end{enunciado}
 
-Resposta resposta resposta
+A equação do generalization bound é dada por:
+
+\begin{equation*}
+    E_{out}(g) \leq E_{in}(g) + \sqrt{\frac{8}{N} \ln{\frac{4 ((2N) ^ {dvc} + 1)} {\delta}}}
+\end{equation*}
+
+Portanto, para o caso em que N = 100, temos:
+
+\begin{equation*}
+    E_{out}(g) \leq E_{in}(g) + \sqrt{\frac{8}{100} \ln{\frac{4 (201)} {0.1}}}  \approx  E_{in}(g) + 0.848
+\end{equation*}
+
+Para o caso em que N = 10000, temos:
+
+\begin{equation*}
+    E_{out}(g) \leq E_{in}(g) + \sqrt{\frac{8}{10000} \ln{\frac{4 (20001)} {0.1}}}  \approx  E_{in}(g) + 0.104
+\end{equation*}
