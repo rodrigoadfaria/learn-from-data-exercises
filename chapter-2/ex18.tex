@@ -3,10 +3,11 @@
     
     $$ \hipotset = \left\{ h_{\alpha} ~|~ h_{\alpha}(x) = (-1)^{\floor{\alpha x}}, \text{ where }\alpha \in \conjR \right\},$$
     
-    where $\floor{A}$ is the biggest integer $\le A$ (the floor function). This hypothesis has only one parameter $\alpha$ but `enjoys' an infinite VC dimension. \textit{[Hint: Consider $x_1, \dots, x_N$, where $x_n = 10^n$, and show how to implement an arbitrary dichotomy $y_1, \dots, y_N$.]}
+    where $\floor{A}$ is the biggest integer $\le A$ (the floor function). This hypothesis has only one parameter $\alpha$ but `enjoys' an infinite VC dimension.
+    \textit{[Hint: Consider $x_1, \dots, x_N$, where $x_n = 10^n$, and show how to implement an arbitrary dichotomy $y_1, \dots, y_N$.]}
 \end{enunciado}
 
-Antes de provar que qualquer dicotomia pode ser gerada, vamos mostrar algumas propriedades com relação à função $h_{\alpha}$ definida no enunciado:
+  Antes de provar que qualquer dicotomia pode ser gerada, vamos mostrar algumas propriedades com relação à função $h_{\alpha}$ definida no enunciado:
   
    \textbf{Propriedade periódica: } dado um $x \in \mathbb{R}$, $h_{\alpha}(x)$ é uma função periódica com período $\frac{2}{x}$, isto é, $h_{\alpha}(x) = h_{(\alpha + \frac{2}{x})}(x)$, pois:
    
@@ -55,5 +56,5 @@ Antes de provar que qualquer dicotomia pode ser gerada, vamos mostrar algumas pr
     teremos $h_\alpha(x_i) = 1 = y_i$. Senão, $y_i = -1 \Rightarrow S_2 = \frac{1}{x_i}$, o resto da divisão de
     $S_1 + S_2 + S_3$ por $\frac{2}{x_i}$ cairá no intervalo $[\frac{1}{x_i}, \frac{2}{x_i})$, o que nos dará $h_\alpha(x_i) = -1 = y_i$, como queríamos.
     
-    Portando, a dicotomia $Y$ pode ser obtida para $\alpha = \sum\limits_{j = 1}^N \frac{(1-y_j)}{2x_j}$ e todas as $2^N$ dicotomias podem ser obtidas. Como este procedimento
-    vale para qualquer inteiro $N$, temos que a dimensão VC do $\hipotset$ dado é infinito.
+    Portanto, a dicotomia $Y$ pode ser obtida para $\alpha = \sum\limits_{j = 1}^N \frac{(1-y_j)}{2x_j}$. Como este procedimento
+    vale para qualquer dicotomia $Y$, podemos gerar todas as $2^N$ dicotomias para qualquer inteiro $N$ e concluimos que a dimensão VC do $\hipotset$ dado é infinito.
