@@ -6,4 +6,54 @@
     where $\floor{A}$ is the biggest integer $\le A$ (the floor function). This hypothesis has only one parameter $\alpha$ but `enjoys' an infinite VC dimension. \textit{[Hint: Consider $x_1, \dots, x_N$, where $x_n = 10^n$, and show how to implement an arbitrary dichotomy $y_1, \dots, y_N$.]}
 \end{enunciado}
 
-Resposta resposta resposta
+ Antes de provar que qualquer dicotomia pode ser gerada, vamos mostrar algumas propriedades com relação à função $h_{\alpha}$ definida no enunciado:
+  
+   \textbf{Propriedade periódica: } dado um $x \in \mathbb{R}$, $h_{\alpha}(x)$ é uma função periódica com período $\frac{2}{x}$, isto é, $h_{\alpha}(x) = h_{(\alpha + \frac{2}{x})}(x)$, pois:
+   
+   \[
+    h_{(\alpha + \frac{2}{x})}(x) = (-1)^{\floor{(\alpha + \frac{2}{x}) x}} = (-1)^{\floor{\alpha x + 2}} = (-1)^{\floor{\alpha x}} (-1)^2 = (-1)^{\floor{\alpha x}} = h_{\alpha}(x)
+   \]
+
+   \textbf{Intervalos positivos e negativos: } por definição, temos que:
+    \begin{itemize}
+     \item Se $0 \leq \alpha < \frac{1}{x}$, então $h_{\alpha}(x) = (-1)^{\floor{\alpha x}} = 1$, pois teremos $0 \leq \alpha x < 1$ e $(-1)^{\floor{\alpha x}} = (-1)^0 = 1$.
+     \item Se $\frac{1}{x} \leq \alpha < \frac{2}{x}$, então $h_{\alpha}(x) = (-1)^{\floor{\alpha x}} = -1$, pois teremos $1 \leq \alpha x < 2$ e $(-1)^{\floor{\alpha x}} = (-1)^1 = -1$
+    \end{itemize}
+    
+    Os dois casos acima cobrem o intervalo $[0, \frac{2}{x})$. Como a função é periódica, qualquer outro valor de $h_{\alpha}(x)$ com $\alpha$ fora deste
+    intervalo pode ser obtida reduzindo o valor de $\alpha$ a um valor dentro do intervalo $[0, \frac{2}{x})$. Isso pode ser feito ao tomarmos o resto da divisão de
+    $\alpha$ por $\frac{2}{x}$.
+
+    Assim sendo, tome um conjunto de $N$ pontos $X = \{x_1, x_2, \ldots, x_N\}$ com $x_i = 2^i$, $\forall 1 \leq i \leq N$. Seja
+    $Y = \{y_1, y_2, \ldots, y_N\}$ ($y_i \in \{-1, 1\}, \forall 1 \leq i \leq N$) uma dicotomia arbitrária. Vamos mostrar que sempre existe $\alpha \in \mathbb{R}$
+    que gera $Y$, isto é, $h_{\alpha}(x_i) = y_i$ para todo $1 \leq i \leq N$.
+    
+    \textbf{Proposição: } Se $\alpha = \sum\limits_{j = 1}^N \frac{(1-y_j)}{2x_j}$, então $h_{\alpha}(x_i) = y_i$ para qualquer $1 \leq i \leq N$.
+    
+    \textbf{Prova: } Primeiro, nota-se que o somatório acima pode ser dividido em 3 partes: 
+    
+    \[
+     \sum\limits_{j = 1}^N \frac{(1-y_j)}{2x_j}  = (\sum\limits_{j = 1}^{i - 1} \frac{(1-y_j)}{2x_j}) + \frac{(1-y_i)}{2x_i} + (\sum\limits_{j = i + 1}^{N} \frac{(1-y_j)}{2x_j}) = S_1 + S_2 + S_3
+    \]
+
+    Pela nossa escolha de $X$, temos que $\frac{1-y_j}{2x_j}$ é múltiplo de $\frac{2}{x_i}$ para qualquer $j < i$, pois $\frac{1-y_j}{2}$ ou é $1$ ou é $0$. Se for 0,
+    então $\frac{1-y_j}{2x_j} = 0 = 0 \times \frac{2}{x_i}$. Senão,
+    $\frac{1-y_j}{2x_j} = \frac{1}{x_j} = 2^{-j} = 2^{-i + 1 + k} = 2 \times 2^{-i} \times 2^k = 2^k \times \frac{2}{x_i}$, onde $k = i - j - 1$ e, portanto, $k \geq 0$.
+    Como tal propriedade vale para todo $j < i$, então $S_1 = \sum\limits_{j = 1}^{i - 1} \frac{(1-y_j)}{2x_j}$ é múltiplo de $\frac{2}{x_i}$ e o resto da divisão de $S_1$
+    por $\frac{2}{x_i}$ é 0.
+    
+    Por outro lado, o somatório $S_3$ é limitado entre $0$ (quando todos os $y_j  = 1$) e $\sum\limits_{j = i + 1}^{N} \frac{1}{x_j}$ (quando todos os $y_j$ são 0). Este limite
+    superior consiste de uma P.G. de razão $\frac{1}{2}$ e pode-se observar que:
+    
+    \[
+      \sum\limits_{j = i + 1}^{N} \frac{1}{x_j} = \sum\limits_{j = i + 1}^{N} 2^{-j} < \frac{2^{-i-1}}{1 - \frac{1}{2}} = 2^{-i-1+1} = 2^{-i} = \frac{1}{x_i}
+    \]
+
+    Portanto, temos que $0 \leq S_3 < \frac{1}{x_i}$.
+    
+    Por fim, resta calcular $S_2$. Se $y_i = 1$, então teremos $S_2 = 0$, o resto da divisão de $S_1 + S_2 + S_3$ por $\frac{2}{x_i}$ cairá no intervalo $[0, \frac{1}{x_i})$ e
+    teremos $h_\alpha(x_i) = 1 = y_i$. Senão, $y_i = -1 \Rightarrow S_2 = \frac{1}{x_i}$, o resto da divisão de
+    $S_1 + S_2 + S_3$ por $\frac{2}{x_i}$ cairá no intervalo $[\frac{1}{x_i}, \frac{2}{x_i})$, o que nos dará $h_\alpha(x_i) = -1 = y_i$, como queríamos.
+    
+    Portando, a dicotomia $Y$ pode ser obtida para $\alpha = \sum\limits_{j = 1}^N \frac{(1-y_j)}{2x_j}$ e todas as $2^N$ dicotomias podem ser obtidas. Como este procedimento
+    vale para qualquer inteiro $N$, temos que a dimensão VC do $\hipotset$ dado é infinito.
