@@ -6,7 +6,7 @@
     where $\floor{A}$ is the biggest integer $\le A$ (the floor function). This hypothesis has only one parameter $\alpha$ but `enjoys' an infinite VC dimension. \textit{[Hint: Consider $x_1, \dots, x_N$, where $x_n = 10^n$, and show how to implement an arbitrary dichotomy $y_1, \dots, y_N$.]}
 \end{enunciado}
 
- Antes de provar que qualquer dicotomia pode ser gerada, vamos mostrar algumas propriedades com relação à função $h_{\alpha}$ definida no enunciado:
+Antes de provar que qualquer dicotomia pode ser gerada, vamos mostrar algumas propriedades com relação à função $h_{\alpha}$ definida no enunciado:
   
    \textbf{Propriedade periódica: } dado um $x \in \mathbb{R}$, $h_{\alpha}(x)$ é uma função periódica com período $\frac{2}{x}$, isto é, $h_{\alpha}(x) = h_{(\alpha + \frac{2}{x})}(x)$, pois:
    
@@ -24,8 +24,8 @@
     intervalo pode ser obtida reduzindo o valor de $\alpha$ a um valor dentro do intervalo $[0, \frac{2}{x})$. Isso pode ser feito ao tomarmos o resto da divisão de
     $\alpha$ por $\frac{2}{x}$.
 
-    Assim sendo, tome um conjunto de $N$ pontos $X = \{x_1, x_2, \ldots, x_N\}$ com $x_i = 2^i$, $\forall 1 \leq i \leq N$. Seja
-    $Y = \{y_1, y_2, \ldots, y_N\}$ ($y_i \in \{-1, 1\}, \forall 1 \leq i \leq N$) uma dicotomia arbitrária. Vamos mostrar que sempre existe $\alpha \in \mathbb{R}$
+    Assim sendo, tome uma sequência de $N$ pontos $X = (x_1, x_2, \ldots, x_N)$ com $x_i = 2^i$, $\forall 1 \leq i \leq N$. Seja
+    $Y = (y_1, y_2, \ldots, y_N)$ ($y_i \in \{-1, 1\}, \forall 1 \leq i \leq N$) uma dicotomia arbitrária. Vamos mostrar que sempre existe $\alpha \in \mathbb{R}$
     que gera $Y$, isto é, $h_{\alpha}(x_i) = y_i$ para todo $1 \leq i \leq N$.
     
     \textbf{Proposição: } Se $\alpha = \sum\limits_{j = 1}^N \frac{(1-y_j)}{2x_j}$, então $h_{\alpha}(x_i) = y_i$ para qualquer $1 \leq i \leq N$.
